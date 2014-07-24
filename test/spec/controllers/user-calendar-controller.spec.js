@@ -2,19 +2,19 @@
 
 describe('Controller: UserCalendarCtrl', function() {
 
-  beforeEach(module('vivaAngularApp'));
+  var controller,
+    mockScope;
 
-  var UserCalendarCtrl,
-    scope;
+  beforeEach(module('vivaAngularApp', 'ui.calendar'));
 
-  beforeEach(inject(function($controller, $rootScope) {
-    scope = $rootScope.$new();
-    UserCalendarCtrl = $controller('UserCalendarCtrl', {
-      $scope: scope
+  beforeEach(inject(function ($controller, $rootScope) {
+    mockScope = $rootScope.$new();
+    controller = $controller('UserCalendarCtrl', {
+      $scope: mockScope
     });
   }));
 
   it('should return event sources', function() {
-    expect(scope.eventSources).toBe(true);
+    expect(mockScope.eventSources).toBeDefined(true);
   });
 });
