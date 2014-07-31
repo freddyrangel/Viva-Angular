@@ -15,6 +15,10 @@ describe('Controller: UserCalendarCtrl', function() {
   }));
 
   it('should return event sources', function() {
-    expect(mockScope.eventSources).toBeDefined(true);
+    expect(mockScope.eventSources).toEqual([mockScope.eventSource]);
+  });
+
+  it('should take event source', function(){
+    expect(mockScope.eventSource.url).toEqual('http://162.243.222.54/fullcalendar/new_fechas_insp.php');
   });
 });

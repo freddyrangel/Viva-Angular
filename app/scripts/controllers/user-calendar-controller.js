@@ -1,13 +1,14 @@
 'use strict';
 
 app.controller('UserCalendarCtrl', function($scope) {
-  var date = new Date(),
-  d = date.getDate(),
-  m = date.getMonth(),
-  y = date.getFullYear();
+  //var date = new Date(),
+  //d = date.getDate(),
+  //m = date.getMonth(),
+  //y = date.getFullYear();
 
   $scope.uiConfig = {
     calendar:{
+      //defaultView: 'agendaDay',
       height: 450,
       editable: true,
       header:{
@@ -21,9 +22,11 @@ app.controller('UserCalendarCtrl', function($scope) {
     }
   };
 
-  $scope.eventSources = {
-    url: 'http://162.243.222.54/fullcalendar/new_fechas_admin.php'
+  $scope.eventSource = {
+    url: 'http://162.243.222.54/fullcalendar/new_fechas_insp.php'
   };
 
-	//$scope.calendar.fullCalendar('addEventSource', source);
+  $scope.eventSources = [$scope.eventSource];
+
+  //$scope.calendar.fullCalendar('addEventSource', source);
 });
