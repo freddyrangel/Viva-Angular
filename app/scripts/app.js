@@ -5,6 +5,10 @@ var app = angular
     'ui.calendar'
   ]);
 
-app.run(function($rootScope, $log) {
+app.config(function($httpProvider){
+  $httpProvider.defaults.useXDomain = true;
+  delete $httpProvider.defaults.headers.common['X-Requested-With'];
+})
+.run(function($rootScope, $log) {
   $rootScope.$log = $log;
 });
