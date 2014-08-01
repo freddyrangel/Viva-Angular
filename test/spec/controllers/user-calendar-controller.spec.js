@@ -18,20 +18,23 @@ describe('Controller: UserCalendarCtrl', function() {
 
   describe('Calendar resize based on width', function() {
 
-    it('should set a width', function() {
-      expect(mockScope.width).toBeDefined(true);
+    beforeEach(function() {
+      mockScope.width = 700;
+      mockScope.$apply();
     });
 
-    describe('resize', function() {
-      beforeEach(function (mockScope){
-        spyOn(mockScope, 'width').and.callFake(function(){
-          return 700;
-        });
-      });
+    it('should set a width', function() {
+      expect(mockScope.width).toEqual(700);
+    });
 
-      it('should call mobile', function() {
-        expect(mockScope.uiConfig).toEqual(VivaCalendar.uiConfig('mobile'));
-      });
+    it('should call mobile', function() {
+      expect(mockScope.uiConfig).toEqual(VivaCalendar.uiConfig('mobile'));
+    });
+
+    it('should call mobile', function() {
+      mockScope.width = 1000;
+      mockScope.$apply();
+      expect(mockScope.uiConfig).toEqual(VivaCalendar.uiConfig());
     });
   });
 
